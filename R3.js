@@ -4,7 +4,7 @@ let connection = mysql.createConnection(
     {
         host        : "localhost",
         user        : "root",
-        password    : "Contraseña",
+        password    : "Patatas21",
         database    : "Museo"
     }
 );
@@ -16,7 +16,7 @@ connection.connect(function(error){
 });
 
 
-// let sql = "SELECT Nombre, Apellidos2, Título FROM Alumnos JOIN Asignaturas ON (Alumnos.idAlumnos = Asignaturas.id_Alumns)";
+// let sql = "SELECT Nombre, Apellidos2, Título FROM Alumnos JOIN Asignaturas ON (Alumnos.idAsignaturas = Asignaturas.id_Alumns)";
 // connection.query(sql, function(err, result){
 //     if (err)
 //     console.log(err);
@@ -26,7 +26,7 @@ connection.connect(function(error){
 //     }
 // })
 
-// let sql = "SELECT Nombre, Apellidos, Título FROM Profesores2 JOIN Asignaturas ON (Profesores2.idProfesores2 = Asignaturas.idAsignaturas)";
+// let sql = "SELECT Nombre, Apellidos, Título FROM Profesores2 JOIN Asignaturas ON (Profesores2.id_Asign = Asignaturas.idAsignaturas)";
 // connection.query(sql, function(err, result){
 //     if (err)
 //     console.log(err);
@@ -38,24 +38,16 @@ connection.connect(function(error){
 
 
 
-//----
-// let sql = "SELECT Nombre, Apellidos, Título FROM Profesores2 JOIN Asignaturas ON (Profesores2.idProfesores2 = Asignaturas.idAsignaturas)";
+
+
+
+
+// let sql = "SELECT Prestado, Localizacion, Nombre, Apellidos, Email, Fechadevolución  FROM Piezas JOIN Dueños ON (Piezas.id_dueños = Dueños.idDueños) JOIN Prestado ON (Piezas.id_prestado = Prestado.idPrestado) WHERE Prestado = Prestado";
 // connection.query(sql, function(err, result){
 //     if (err)
 //     console.log(err);
 //     else {
-//         console.log("Listado Profresores realizado")
+//         console.log("Listado realizado")
 //         console.log(result);
 //     }
 // })
-
-
-let sql = "SELECT Localizacion, Nombre, Apellidos, Email  FROM Piezas JOIN Dueños ON (Piezas.idPiezas = Dueños.idDueños) WHERE Prestado = 'Si'";
-connection.query(sql, function(err, result){
-    if (err)
-    console.log(err);
-    else {
-        console.log("Listado realizado")
-        console.log(result);
-    }
-})
